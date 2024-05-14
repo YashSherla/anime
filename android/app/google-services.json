@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "904113657497",
+    "project_id": "days-f8a81",
+    "storage_bucket": "days-f8a81.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904113657497:android:d0c34a52cdef5b7bf20a08",
+        "android_client_info": {
+          "package_name": "com.example.pratice_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHkHktZbEFVV_NNPk2eCWs1Gen9FJtObU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

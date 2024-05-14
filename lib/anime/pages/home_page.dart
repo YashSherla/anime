@@ -1,6 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pratice_app/anime/constants/provider.dart';
+import 'package:pratice_app/anime/pages/latest_ep_anime.dart';
+import 'package:pratice_app/anime/pages/search_page.dart';
+import 'package:pratice_app/anime/pages/top_hit_anime_details_page.dart';
 
 class Joee extends ConsumerStatefulWidget {
   const Joee({super.key});
@@ -108,6 +112,56 @@ class _JoeeState extends ConsumerState<Joee> {
                               ),
                             ),
                           ),
+                          const SizedBox(height: 20),
+                          Positioned(
+                            top: 70,
+                            left: 10,
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const SizedBox(width: 10),
+                                  const CircleAvatar(
+                                    radius: 20,
+                                    backgroundImage: NetworkImage(
+                                      'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  Row(
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(
+                                          CupertinoIcons.search,
+                                          size: 30,
+                                        ),
+                                        color: Colors.white,
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const SearchPage(),
+                                              ));
+                                        },
+                                      ),
+                                      IconButton(
+                                        icon: const Icon(
+                                          CupertinoIcons.bell,
+                                          size: 30,
+                                        ),
+                                        color: Colors.white,
+                                        onPressed: () {},
+                                      ),
+                                      const SizedBox(width: 10),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
                         ],
                       );
                     },
@@ -127,7 +181,13 @@ class _JoeeState extends ConsumerState<Joee> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const HitAnimeDetails(),
+                              ));
+                        },
                         child: const Text(
                           'See all',
                           style: TextStyle(
@@ -145,7 +205,7 @@ class _JoeeState extends ConsumerState<Joee> {
                   width: MediaQuery.of(context).size.width,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: data.trendingAnimes.length,
+                    itemCount: 5,
                     itemBuilder: (context, index) {
                       return Stack(
                         children: [
@@ -165,13 +225,14 @@ class _JoeeState extends ConsumerState<Joee> {
                           ),
                           Positioned(
                             bottom: 0,
-                            
                             child: Padding(
                               padding: const EdgeInsets.all(15.0),
                               child: Text(
                                 data.trendingAnimes[index].rank.toString(),
                                 style: const TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 40,color: Colors.white),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 40,
+                                    color: Colors.white),
                               ),
                             ),
                           )
@@ -194,7 +255,14 @@ class _JoeeState extends ConsumerState<Joee> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const LatestEpisodeAnimes(),
+                              ));
+                        },
                         child: const Text(
                           'See all',
                           style: TextStyle(
