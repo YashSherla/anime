@@ -15,7 +15,4 @@ class Api {
       throw Exception('Failed to load homepage');
     }
   }
-  
 }
-
-
